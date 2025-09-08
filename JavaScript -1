@@ -1,0 +1,29 @@
+// Animation for title glow
+const title = document.querySelector(".title");
+
+setInterval(() => {
+  title.style.textShadow = `
+    0 0 10px #ffcc00,
+    0 0 20px #ffcc00,
+    0 0 40px #00ffcc,
+    0 0 80px #00ffcc
+  `;
+  setTimeout(() => {
+    title.style.textShadow = "none";
+  }, 800);
+}, 2000);
+
+// Smooth scroll for sections
+document.querySelectorAll("a[href^='#']").forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+// Pop-up welcome message
+window.onload = () => {
+  alert("Welcome to Deepalakshmi's Online Banking Themed Portfolio 💳");
+};
